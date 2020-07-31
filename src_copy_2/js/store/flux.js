@@ -37,7 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(result => {
 						setStore({ characters: result });
 						store.characters.results.forEach(element => {
-							//	console.log(element.name);
+							console.log(element.name);
 						});
 					})
 					.catch(error => console.log("error", error));
