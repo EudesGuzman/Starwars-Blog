@@ -21,7 +21,7 @@ export const Navbar = () => {
 					{store.favorito.map((elemento, index) => {
 						//console.log(elemento.name);
 						return (
-							<Dropdown.Item /* href="/demo" */ key={index}>
+							<Dropdown.Item key={index}>
 								<Link
 									to="/demo"
 									onClick={() => {
@@ -29,6 +29,12 @@ export const Navbar = () => {
 									}}>
 									{elemento.name}
 								</Link>
+								<button
+									onClick={() => {
+										actions.deleteFav(elemento);
+									}}>
+									X
+								</button>
 							</Dropdown.Item>
 						);
 					})}
