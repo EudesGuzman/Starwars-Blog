@@ -21,8 +21,14 @@ export const Navbar = () => {
 					{store.favorito.map((elemento, index) => {
 						//console.log(elemento.name);
 						return (
-							<Dropdown.Item href="#/action-1" key={index}>
-								{elemento.name}
+							<Dropdown.Item /* href="/demo" */ key={index}>
+								<Link
+									to="/demo"
+									onClick={() => {
+										actions.details(elemento);
+									}}>
+									{elemento.name}
+								</Link>
 							</Dropdown.Item>
 						);
 					})}
