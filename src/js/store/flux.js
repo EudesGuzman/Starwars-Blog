@@ -1,60 +1,40 @@
-const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({ getStore, /* getActions ,*/ setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
-			characters: []
+			characters: [],
+			details: {},
+			favorito: []
 		},
 
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+
+			// añadimos async antes de la función
+			loadSomeData: async () => {
+				let response = await fetch("https://swapi.dev/api/people/");
+				let element = await response.json();
+				setStore({ characters: element.results });
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-                */
-				const store = getStore();
 
-				var requestOptions = {
-					method: "GET",
-					redirect: "follow"
-				};
-
-				fetch("https://swapi.dev/api/people/", requestOptions)
-					.then(response => response.json())
-					.then(result => {
-						setStore({ characters: result });
-						store.characters.results.forEach(element => {
-							//	console.log(element.name);
-						});
-					})
-					.catch(error => console.log("error", error));
+			details: element => {
+				setStore({ details: element });
 			},
-			changeColor: (index, color) => {
-				//get the store
+
+			/* addFavorito: element => {
 				const store = getStore();
+				console.log(store.favorito.length);
+				setStore({ favorito: [...store.favorito, element] });
+            } */
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+			addFavorito: element => {
+				const store = getStore();
+				setStore({ favorito: [...store.favorito, element] });
 
-				//reset the global store
-				setStore({ demo: demo });
+				for (let i = 0; i < store.favorito.length; i++) {
+					if (element == store.favorito[i - 1]) {
+						store.favorito.pop();
+					}
+				}
 			}
 		}
 	};

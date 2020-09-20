@@ -2,14 +2,19 @@ import React, { useContext } from "react";
 import "../../styles/home.scss";
 import { Context } from "../store/appContext";
 import { Card } from "../component/card";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
-	
 	return (
-	<>
-		{store.characters.map((e, index) => {
-			return <Card key={index} gender={e.gender} hairColor={e.hair_color} eyeColor={e.eye_color} />;
-		})}
-	</>;
+		<>
+			<h2 className="">Characters</h2>
+			<div className="card-group scrolling-wrapper">
+				{store.characters.map((elm, index) => {
+					//	console.log(a);
+					return <Card idx={index} element={elm} key={index} />;
+				})}
+			</div>
+		</>
 	);
+};
