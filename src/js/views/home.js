@@ -17,7 +17,7 @@ export const Home = () => {
 			</div>
 
 			<h2 className="">Planets</h2>
-			<div className="card-group scrolling-wrapper">
+			<div className="card-group ">
 				{store.planets.map((elm, index) => {
 					//	console.log(a);
 					return <Card idx={index} element={elm} key={index} />;

@@ -1,16 +1,17 @@
 .card {
     min-width: 150px;
     margin: 0 5px;
+    display: inline-block;
 }
-/* .card-group{
-    width: 800px;
+
+.card-group{
+    width: 1800px;
+    min-height: 300px; 
 }
 
 .scrolling-wrapper {
-  overflow-x: scroll;
-  white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+} 
 
-  .card {
-    display: inline-block;
-  }
-} */
