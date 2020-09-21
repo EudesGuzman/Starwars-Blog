@@ -34,10 +34,9 @@ export const Card = props => {
 							Learn more
 						</button>
 					</Link>
-
 					<button
 						type="button"
-						className="btn btn-outline-warning"
+						className="btn btn-outline-warning change"
 						onClick={() => {
 							actions.addFavorito(element);
 						}}>
