@@ -15,6 +15,14 @@ export const Home = () => {
 					return <Card idx={index} element={elm} key={index} />;
 				})}
 			</div>
+
+			<h2 className="">Planets</h2>
+			<div className="card-group scrolling-wrapper">
+				{store.planets.map((elm, index) => {
+					//	console.log(a);
+					return <Card idx={index} element={elm} key={index} />;
+				})}
+			</div>
 		</>
 	);
 };

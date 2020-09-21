@@ -3,7 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			characters: [],
 			details: {},
-			favorito: []
+			favorito: [],
+			planets: []
 		},
 
 		actions: {
@@ -14,6 +15,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let response = await fetch("https://swapi.dev/api/people/");
 				let element = await response.json();
 				setStore({ characters: element.results });
+			},
+			loadSomeDataPlanets: async () => {
+				let response = await fetch("https://swapi.dev/api/planets/");
+				let element = await response.json();
+				setStore({ planets: element.results });
 			},
 
 			details: element => {
@@ -31,17 +37,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 
 				let selection = document.querySelector(".change");
-				console.log(element);
+				//console.log(element);
 				selection.classList.add("active");
 			},
 
 			deleteFav: element => {
 				const store = getStore();
-				console.log(store.favorito, "favorito");
-				console.log(element, "element");
+				//console.log(store.favorito, "favorito");
+				//console.log(element, "element");
 
 				var indice = store.favorito.indexOf(element); // obtenemos el indice
-				console.log(indice);
+				//console.log(indice);
 				store.favorito.splice(indice, 1); // 1 es la cantidad de elemento a eliminar
 				setStore({ favorito: [...store.favorito] });
 			}

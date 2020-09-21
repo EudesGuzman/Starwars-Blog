@@ -1,3 +1,11 @@
+/* REVISIÓN
+    Error abrir dropdowns -> index.js:1 Warning: validateDOMNesting(...): <a> cannot appear as a descendant of <a>.
+    Como cambiar CSS con click en botón -> FAV BUTTON
+
+    En flux. -> addFavorito -> Explicación de -1
+
+*/
+
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
