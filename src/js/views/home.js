@@ -8,20 +8,22 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<>
-			<h2 className="">Characters</h2>
-			<div className="card-group scrolling-wrapper">
-				{store.characters.map((elm, index) => {
-					//	console.log(a);
-					return <Card idx={index} element={elm} key={index} />;
-				})}
-			</div>
+			<div className="container">
+				<h2 className="">Characters</h2>
+				<div className="card-group scrolling-wrapper scrollbar-ripe-malinka row flex-nowrap mt-4 mb-4">
+					{store.characters.map((elm, index) => {
+						//	console.log(a);
+						return <Card idx={index} element={elm} key={index} />;
+					})}
+				</div>
 
-			<h2 className="">Planets</h2>
-			<div className="card-group ">
-				{store.planets.map((elm, index) => {
-					//	console.log(a);
-					return <Card idx={index} element={elm} key={index} />;
-				})}
+				<h2 className="">Planets</h2>
+				<div className="card-group scrolling-wrapper scrollbar-ripe-malinka row flex-nowrap mt-4 mb-4">
+					{store.planets.map((elm, index) => {
+						//	console.log(a);
+						return <Card idx={index} element={elm} key={index} />;
+					})}
+				</div>
 			</div>
 		</>
 	);

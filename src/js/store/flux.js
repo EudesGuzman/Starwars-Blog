@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			characters: [],
 			details: {},
-			favorito: [],
+			favorito: [{ name: "No Tasks" }],
 			planets: []
 		},
 
@@ -28,8 +28,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			addFavorito: element => {
 				const store = getStore();
-				setStore({ favorito: [...store.favorito, element] });
 
+				if (store.favorito[0].name == "No Tasks") {
+					setStore({ favorito: [element] });
+				} else {
+					setStore({ favorito: [...store.favorito, element] });
+				}
 				for (let i = 0; i < store.favorito.length; i++) {
 					if (element == store.favorito[i - 1]) {
 						store.favorito.pop();
@@ -50,6 +54,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//console.log(indice);
 				store.favorito.splice(indice, 1); // 1 es la cantidad de elemento a eliminar
 				setStore({ favorito: [...store.favorito] });
+				if (store.favorito.length == 0) {
+					setStore({ favorito: [{ name: "No Tasks" }] });
+					alert("No hay ninguna tarea. Por favor añade una tarea.");
+				}
 			}
 		}
 	};

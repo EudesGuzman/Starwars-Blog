@@ -1,3 +1,73 @@
 /* 
     General Styles
 */
+
+.col-3 {
+
+    max-width: 21%;
+}
+
+p {
+    text-transform: capitalize;
+}
+
+.oculto{
+    display: none;
+}
+
+.dropdown-item:hover .oculto{
+    display: inline;
+}
+
+i.fa.fa-trash {
+    margin-left: 6%;
+}
+
+
+
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
+
+.bg-light {
+    background-color: #51565b !important;
+}
+
+.btn-outline-info {
+    color: #104a66;
+    border-color: #104a66;
+}
+
+.btn-outline-info:hover {
+    background-color: #104a66;
+    border-color: #104a66;
+}
+.btn-primary {
+    background-color: #104a66;
+    border-color: #104a66;
+}
+
+ .show > .btn-primary.dropdown-toggle {
+    background-color: #104a66;
+    border-color: #104a66;
+}
+.btn-primary:hover {
+    background-color: #104a66;
+    border-color: #104a66;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+    background-color: #104a66;
+    border-color: #104a66;
+}
+.show > .btn-primary.dropdown-toggle:focus{
+    background-color: #104a66;
+    border-color: #104a66;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0);
+}
+.btn-primary:focus, .btn-primary.focus {
+    background-color: #104a66;
+    border-color: #104a66;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0);
+}

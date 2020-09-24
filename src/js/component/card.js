@@ -17,39 +17,41 @@ export const Card = props => {
 	// guia para cargar funciones --> actions.loadSomeData();
 	return (
 		<>
-			<div className="card">
-				<img className="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap" />
-				<div className="card-body">
-					<h5 className="card-title">{element.name}</h5>
-					<p className="card-text">
-						<b>Gender: </b> {element.gender}
-					</p>
-					<p className="card-text">
-						<b>Hair Color: </b>
-						{element.hair_color}
-					</p>
-					<p className="card-text">
-						<b>Eye Color: </b> {element.eye_color}
-					</p>
+			<div className="col-3">
+				<div className="card card-block">
+					{/* <img className="card-img-top" src="https://via.placeholder.com/350x150" alt="Card image cap" /> */}
+					<div className="card-body">
+						<h5 className="card-title">{element.name}</h5>
+						<p className="card-text">
+							<b>Gender: </b> {element.gender}
+						</p>
+						<p className="card-text">
+							<b>Hair Color: </b>
+							{element.hair_color}
+						</p>
+						<p className="card-text">
+							<b>Eye Color: </b> {element.eye_color}
+						</p>
 
-					<Link to="/demo">
+						<Link to="/demo">
+							<button
+								type="button"
+								className="btn btn-outline-info"
+								onClick={() => {
+									actions.details(element);
+								}}>
+								Learn more
+							</button>
+						</Link>
 						<button
 							type="button"
-							className="btn btn-outline-primary"
+							className="btn btn-outline-warning change "
 							onClick={() => {
-								actions.details(element);
+								actions.addFavorito(element);
 							}}>
-							Learn more
+							<i className="fa fa-heart" aria-hidden="true" />
 						</button>
-					</Link>
-					<button
-						type="button"
-						className="btn btn-outline-warning change"
-						onClick={() => {
-							actions.addFavorito(element);
-						}}>
-						<i className="fa fa-heart" aria-hidden="true" />
-					</button>
+					</div>
 				</div>
 			</div>
 		</>

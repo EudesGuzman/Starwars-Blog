@@ -29,12 +29,14 @@ export const Navbar = () => {
 									}}>
 									{elemento.name}
 								</Link>
-								<button
+
+								<a
+									className="oculto"
 									onClick={() => {
 										actions.deleteFav(elemento);
 									}}>
-									X
-								</button>
+									<i className="fa fa-trash" aria-hidden="true" />
+								</a>
 							</Dropdown.Item>
 						);
 					})}
