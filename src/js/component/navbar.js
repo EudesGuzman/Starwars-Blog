@@ -6,6 +6,9 @@ import { Context } from "../store/appContext";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 
+// *******************************************************
+import { Autocomplete } from "./autocomplete";
+
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
@@ -16,6 +19,9 @@ export const Navbar = () => {
 					<img src="https://cdn.iconscout.com/icon/free/png-256/starwars-6-569425.png" width="80px" />
 				</span>
 			</Link>
+
+			<Autocomplete />
+
 			<div className="ml-auto">
 				<DropdownButton id="dropdown-basic-button" title="Favoritos">
 					{store.favorito.map((elemento, index) => {

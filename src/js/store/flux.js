@@ -56,7 +56,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorito: [...store.favorito] });
 				if (store.favorito.length == 0) {
 					setStore({ favorito: [{ name: "No Tasks" }] });
-					alert("No hay ninguna tarea. Por favor añade una tarea.");
+				}
+			},
+			autocomplete: (e, element) => {
+				const store = getStore();
+				let prueba = "";
+				prueba += e.target.value;
+
+				for (let i = 0; i < store.characters.length; i++) {
+					if (store.characters[i].name.toLowerCase().indexOf(prueba.toLowerCase()) == 0) {
+						/* console.log(store.characters[i].name.toLowerCase());
+						console.log("-------------------------"); */
+						if (prueba.length > 2) {
+							e.target.value = store.characters[i].name;
+						}
+					}
 				}
 			}
 		}

@@ -4,6 +4,10 @@
 
     En flux. -> addFavorito -> Explicación de -1
 
+    LocalStorage
+
+    Como comprobar que tecla se ha presionado
+
 */
 
 import React, { useContext } from "react";
