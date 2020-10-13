@@ -1,3 +1,15 @@
+/* REVISIÓN
+    Error abrir dropdowns -> index.js:1 Warning: validateDOMNesting(...): <a> cannot appear as a descendant of <a>.
+    Como cambiar CSS con click en botón -> FAV BUTTON
+
+    En flux. -> addFavorito -> Explicación de -1
+
+    LocalStorage
+
+    Como comprobar que tecla se ha presionado
+
+*/
+
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -39,12 +51,11 @@ export const Card = props => {
 							type="button"
 							className="btn btn-outline-warning"
 							onClick={e => {
-								if (e.target.className == "btn btn-outline-warning") {
-									actions.addFavorito(element);
-									e.target.className = "btn btn-outline-success";
-								} else {
-									actions.deleteFav(element);
+								actions.addFavorito(element);
+								if (e.target.className == "btn btn-outline-success") {
 									e.target.className = "btn btn-outline-warning";
+								} else if (e.target.className == "btn btn-outline-warning") {
+									e.target.className = "btn btn-outline-success";
 								}
 							}}>
 							<i className="fa fa-heart" aria-hidden="true" />

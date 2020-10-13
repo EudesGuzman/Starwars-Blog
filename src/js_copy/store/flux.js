@@ -5,7 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			details: {},
 			favorito: [{ name: "No Tasks" }],
 			planets: [],
-			autocomplete: ""
+			autocompleted: false
 		},
 
 		actions: {
@@ -44,26 +44,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deleteFav: element => {
 				const store = getStore();
+				//console.log(store.favorito, "favorito");
+				//console.log(element, "element");
 
 				var indice = store.favorito.indexOf(element); // obtenemos el indice
 				//console.log(indice);
-				store.favorito.splice(indice, 1);
+				store.favorito.splice(indice, 1); // 1 es la cantidad de elemento a eliminar
 				setStore({ favorito: [...store.favorito] });
 				if (store.favorito.length == 0) {
 					setStore({ favorito: [{ name: "No Tasks" }] });
 				}
 			},
-			autocomplete: e => {
+			autocomplete: (e, element) => {
 				const store = getStore();
 				let autocompleteName = "";
 				autocompleteName += e.target.value;
+				console.log(autocompleteName, "###########################");
 
 				for (let i = 0; i < store.characters.length; i++) {
 					if (store.characters[i].name.toLowerCase().indexOf(autocompleteName.toLowerCase()) == 0) {
+						/* console.log(store.characters[i].name.toLowerCase());
+						console.log("-------------------------"); */
 						if (autocompleteName.length > 2) {
 							e.target.value = store.characters[i].name;
-							setStore({ autocomplete: store.characters[i].name });
-							console.log(store.autocomplete);
+							setStore({ details: store.characters[i], autocompleted: true });
 						}
 					}
 				}
